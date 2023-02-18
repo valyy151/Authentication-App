@@ -1,0 +1,25 @@
+body {
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+	text-align: center;
+}
+
+a {
+	color: #00b7ff;
+}
+
+nav {
+	background: #004363;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 0;
+	font-size: 1.2em;
+}
+
+a {
+	text-decoration: none;
+	padding: 0 15px;
+}
+
+button {
+	font-size: 2em;
+}
