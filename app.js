@@ -32,20 +32,36 @@ const authorize = (req, res, next) => {
 	const token = req.cookies['Json Web Token'];
 	if (!token) {
 		res.status(400).redirect('/login');
-	} else
-		jwt.verify(token, process.env.SECRET, async (err, decodedToken) => {
+	} else {
+		jwt.verify(token, process.env.SECRET, (err, decodedToken) => {
 			if (err) {
-				res.status(400).redirect('/login');
-			} else return;
+				res.status(400).json(err);
+			}
 		});
+	}
 
 	next();
+};
+
+const authenticate = async (req, res, next) => {
+	const token = req.cookies['Json Web Token'];
+	if (!token) {
+		app.locals.username = null;
+	} else {
+		jwt.verify(token, process.env.SECRET, async (err, decodedToken) => {
+			const user = await User.findById(decodedToken.id);
+			app.locals.username = user.username;
+		});
+	}
+	setTimeout(() => {
+		next();
+	}, 50);
 };
 
 // 👇 Start handling routes here
 
 const index = require('./routes/index');
-app.use('/', index);
+app.use('/', authenticate, index);
 
 const photos = require('./routes/photos');
 app.use('/photos', authorize, photos);
@@ -54,7 +70,7 @@ const login = require('./routes/login');
 app.use('/login', login);
 
 const logout = require('./routes/logout');
-app.use('/logout', logout);
+app.use('/logout', authenticate, logout);
 
 const register = require('./routes/register');
 app.use('/register', register);

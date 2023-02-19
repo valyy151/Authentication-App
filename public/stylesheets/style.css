@@ -3,6 +3,11 @@ body {
 	text-align: center;
 }
 
+h1,
+h2 {
+	color: #00b7ff;
+}
+
 a {
 	color: #00b7ff;
 	text-decoration: none;
@@ -11,6 +16,9 @@ a {
 
 span {
 	color: #00b7ff;
+	border-right: 1px solid #00b7ff;
+	padding: 5px 25px;
+	cursor: default;
 }
 
 nav {
