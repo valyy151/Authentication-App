@@ -29,6 +29,15 @@ app.locals.title = projectName;
 const index = require('./routes/index');
 app.use('/', index);
 
+const photos = require('./routes/photos');
+app.use('/photos', photos);
+
+const login = require('./routes/login');
+app.use('/login', login);
+
+const register = require('./routes/register');
+app.use('/register', register);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

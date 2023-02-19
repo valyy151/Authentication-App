@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-router.route('/').get(req, res),
-	() => {
-		res.render('photos');
-	};
+router.get('/', (req, res) => {
+	res.render('photos');
+});
+
+module.exports = router;
