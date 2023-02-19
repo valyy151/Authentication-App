@@ -35,6 +35,9 @@ app.use('/photos', photos);
 const login = require('./routes/login');
 app.use('/login', login);
 
+const logout = require('./routes/logout');
+app.use('/logout', logout);
+
 const register = require('./routes/register');
 app.use('/register', register);
 
