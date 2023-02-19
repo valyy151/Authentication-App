@@ -9,6 +9,10 @@ a {
 	padding: 0 25px;
 }
 
+span {
+	color: #00b7ff;
+}
+
 nav {
 	background: #004363;
 	display: flex;

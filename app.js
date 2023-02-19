@@ -12,7 +12,6 @@ const express = require('express');
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
-
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
@@ -25,12 +24,31 @@ const capitalized = (string) =>
 
 app.locals.title = projectName;
 
+//Authentication middleware
+const jwt = require('jsonwebtoken');
+const User = require('./models/User.model');
+
+const authorize = (req, res, next) => {
+	const token = req.cookies['Json Web Token'];
+	if (!token) {
+		res.status(400).redirect('/login');
+	} else
+		jwt.verify(token, process.env.SECRET, async (err, decodedToken) => {
+			if (err) {
+				res.status(400).redirect('/login');
+			} else return;
+		});
+
+	next();
+};
+
 // 👇 Start handling routes here
+
 const index = require('./routes/index');
 app.use('/', index);
 
 const photos = require('./routes/photos');
-app.use('/photos', photos);
+app.use('/photos', authorize, photos);
 
 const login = require('./routes/login');
 app.use('/login', login);

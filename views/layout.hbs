@@ -12,10 +12,15 @@
 		<nav>
 			<div>
 				<a href='/'>App</a>
+				{{#if username}}
+					<span>Hello {{username.username}}</span>
+				{{/if}}
 			</div>
 			<div>
 				<a href='/'>Home</a>
+
 				<a href='/login'>Login</a>
+
 				<a href='/logout'>Logout</a>
 
 			</div>
