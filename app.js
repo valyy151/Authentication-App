@@ -75,6 +75,8 @@ app.use('/logout', authenticate, logout);
 const register = require('./routes/register');
 app.use('/register', register);
 
+const profile = require('./routes/profile');
+app.use('/profile', profile);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require('./error-handling')(app);
 

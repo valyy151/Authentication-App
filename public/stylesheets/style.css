@@ -1,11 +1,15 @@
 body {
 	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 	text-align: center;
+	color: #116c96;
 }
 
-h1,
 h2 {
 	color: #00b7ff;
+	font-size: 2em;
+}
+h3 {
+	font-size: 1.5em;
 }
 
 a {
@@ -17,7 +21,7 @@ a {
 span {
 	color: #00b7ff;
 	border-right: 1px solid #00b7ff;
-	padding: 5px 25px;
+	padding: 5px 10px;
 	cursor: default;
 }
 
@@ -46,7 +50,7 @@ img {
 }
 
 .indexDiv {
-	margin-top: 10%;
+	margin-top: 5%;
 	line-height: 5em;
 }
 
@@ -66,7 +70,7 @@ img {
 	border-radius: 25px;
 }
 
-.login-div form {
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -88,7 +92,7 @@ img {
 	font-size: 1.5em;
 }
 
-.login-div input {
+input {
 	border-radius: 5px;
 	border: 1px solid #00b7ff;
 	font-size: 1.5em;
@@ -102,4 +106,20 @@ button {
 	font-size: 1.4em;
 	background: none;
 	cursor: pointer;
+}
+
+.profileDiv {
+	box-shadow: 1px 1px 10px #004363;
+	width: 400px;
+	margin: 5% auto;
+	padding: 30px 0;
+	border-radius: 25px;
+}
+
+.profileDiv h3 {
+	margin-top: 100px;
+}
+
+.profileDiv input {
+	margin-bottom: 25px;
 }
